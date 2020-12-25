@@ -40,6 +40,7 @@ class AmocrmController extends Controller
         $clientId = "c0c00301-d897-40f5-b81a-9e290212d37f";
         $clientSecret = "FRdNO6sY3nb4IhWUUvb2uS4m66051vmcQwIb9s2fL8O5zVXRWtRjW9brYJVnlUTt";
         $redirectUri = "https://google.com";
+        $redirectUri = "https://digital-business-test-project.herokuapp.com/redirect-uri";
 
         $this->apiClient = new \AmoCRM\Client\AmoCRMApiClient($clientId, $clientSecret, $redirectUri);
     }
@@ -51,7 +52,7 @@ class AmocrmController extends Controller
         $button = $this->apiClient->getOAuthClient()->getOAuthButton(
             [
                 'title' => 'Установить интеграцию',
-                'compact' => true,
+                'compact' => false,
                 'class_name' => 'className',
                 'color' => 'default',
                 'error_callback' => 'handleOauthError',
