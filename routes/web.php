@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "App\Http\Controllers\AmocrmController@index");
+
+Route::get('/redirect-uri', "App\Http\Controllers\AmocrmController@redirectUriHandle");
+Route::get('/get-leads', "App\Http\Controllers\AmocrmController@getLeads")->name("amocrm.get-leads");
+Route::post('/send-test-lead', "App\Http\Controllers\AmocrmController@sendTestLead")->name("amocrm.send-test-lead");
